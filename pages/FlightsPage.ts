@@ -14,9 +14,13 @@ export class FlightsPage {
     this.flightsTable = page.locator("table.table");
     // XPath axes: select table body rows using descendant axis
     this.tableRows = page.locator("//table[@class='table']//tbody/tr");
-    // XPath axes: find Departs and Arrives column headers using th elements
-    this.departsHeader = page.locator("//table[@class='table']//thead//th[3]");
-    this.arrivesHeader = page.locator("//table[@class='table']//thead//th[4]");
+    // XPath axes: find Departs and Arrives column headers using following-sibling axis
+    this.departsHeader = page.locator(
+      "//table[@class='table']//thead//th[contains(text(),'Departs')]"
+    );
+    this.arrivesHeader = page.locator(
+      "//table[@class='table']//thead//th[contains(text(),'Arrives')]"
+    );
   }
 
   async getPageHeadingText(): Promise<string> {
