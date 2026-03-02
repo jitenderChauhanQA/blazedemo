@@ -8,6 +8,7 @@ export default defineConfig({
   reporter: "html",
   use: {
     baseURL: "https://blazedemo.com",
+    headless: false,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
